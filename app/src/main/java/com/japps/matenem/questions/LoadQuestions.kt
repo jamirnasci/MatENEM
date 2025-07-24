@@ -12,7 +12,7 @@ import kotlin.random.Random
 class LoadQuestions {
     @SuppressLint("CheckResult")
     fun load(count: Int): MutableList<Question>{
-        val url: URL = URL("https://raw.githubusercontent.com/jamirnasci/mat_enem_policy/refs/heads/main/questions.json")
+        val url: URL = URL("https://raw.githubusercontent.com/jamirnasci/mat_questions/refs/heads/main/questions.json")
         val httpURLConnection: HttpURLConnection = url.openConnection() as HttpURLConnection
         httpURLConnection.connect()
 
