@@ -1,7 +1,11 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
+val ONESIGNAL_APP_ID = gradleLocalProperties(rootDir, providers).getProperty("ONESIGNAL_APP_ID", "")
 
 android {
     namespace = "com.japps.matenem"
@@ -15,6 +19,7 @@ android {
         versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        resValue("string", "ONESIGNAL_APP_ID", "\"" + ONESIGNAL_APP_ID + "\"")
     }
 
     buildTypes {
@@ -39,6 +44,9 @@ android {
 }
 
 dependencies {
+    implementation("com.onesignal:OneSignal:[5.1.6, 5.1.99]")
+    implementation(platform("com.google.firebase:firebase-bom:34.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.code.gson:gson:2.13.0")
     implementation("com.google.android.gms:play-services-ads:24.2.0")
     implementation(libs.androidx.core.ktx)

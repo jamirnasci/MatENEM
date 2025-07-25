@@ -52,11 +52,11 @@ class SimuladoActivity : AppCompatActivity() {
                 val corrigirButton: Button = questionView.findViewById<Button>(R.id.corrigirButton)
 
                 comando.text = question.comando
-                a.text = question.a
-                b.text = question.b
-                c.text = question.c
-                d.text = question.d
-                e.text = question.e
+                a.text = "a) ${question.a}"
+                b.text = "b) ${question.b}"
+                c.text = "c) ${question.c}"
+                d.text = "d) ${question.d}"
+                e.text = "e) ${question.e}"
 
                 corrigirButton.setOnClickListener {
                     val checkedId: Int = radioGroup.checkedRadioButtonId

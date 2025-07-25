@@ -20,14 +20,18 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.japps.matenem.databinding.ActivityMainBinding
+import com.onesignal.OneSignal
+import com.onesignal.debug.LogLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.japps.matenem.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val BANNER_ID = "ca-app-pub-2077187211919243/7859551012"
     private lateinit var adView: AdView
+
     @SuppressLint("SetTextI18n", "DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +41,14 @@ class MainActivity : AppCompatActivity() {
         val backgroundScope = CoroutineScope(Dispatchers.IO)
         backgroundScope.launch {
             MobileAds.initialize(this@MainActivity) {}
+        }
+        OneSignal.Debug.logLevel = LogLevel.VERBOSE
+        // Initialize with your OneSignal App ID
+        OneSignal.initWithContext(this, getString(R.string.ONESIGNAL_APP_ID))
+        // Use this method to prompt for push notifications.
+        // We recommend removing this method after testing and instead use In-App Messages to prompt for notification permission.
+        CoroutineScope(Dispatchers.IO).launch {
+            OneSignal.Notifications.requestPermission(true)
         }
 
         val adView = AdView(this)

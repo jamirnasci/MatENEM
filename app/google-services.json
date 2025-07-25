@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989900702773",
+    "project_id": "matapp-22500",
+    "storage_bucket": "matapp-22500.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989900702773:android:f4f0eb5726d67196485d7c",
+        "android_client_info": {
+          "package_name": "io.ionic.japps.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAVRFkNW6vCHH27at1U_hGoWgU58Tz9n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

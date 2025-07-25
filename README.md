@@ -8,6 +8,7 @@ MatENEM é um app de simulados de matemática para o enem e outros concursos...
 - Estatísticas do desempenho no simulado
 - Gabarito das questões
 - Seção de desempenhos anteriores para acompanhar seu progresso
+- Firebase + OneSignal para notificar os usuários
 
 ### Tecnologias usadas
 
