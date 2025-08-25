@@ -6,9 +6,11 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/questionCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_character"
                 android:padding="5dp"
-                android:text="Comando" />
+                android:text="Comando"
+                android:textColor="@color/black" />
 
             <RadioGroup
                 android:id="@+id/questionsRadioGroup"

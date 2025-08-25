@@ -6,7 +6,6 @@ plugins {
     id("com.google.gms.google-services")
 }
 val ONESIGNAL_APP_ID = gradleLocalProperties(rootDir, providers).getProperty("ONESIGNAL_APP_ID", "")
-
 android {
     namespace = "com.japps.matenem"
     compileSdk = 35
@@ -15,7 +14,7 @@ android {
         applicationId = "io.ionic.japps.starter"
         minSdk = 24
         targetSdk = 35
-        versionCode = 6
+        versionCode = 7
         versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

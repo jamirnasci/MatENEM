@@ -2,6 +2,7 @@ package com.japps.matenem
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -11,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -40,6 +42,7 @@ class SimuladoActivity : AppCompatActivity() {
             totalQuestoes = questions.size
             questions.forEach { question ->
                 val questionView: View = layoutInflater.inflate(R.layout.question_layout, null)
+                var questionCard: CardView = questionView.findViewById<CardView>(R.id.questionCard)
                 val comando: TextView = questionView.findViewById<TextView>(R.id.comandoTextView)
                 val radioGroup: RadioGroup =
                     questionView.findViewById<RadioGroup>(R.id.questionsRadioGroup)
@@ -66,9 +69,11 @@ class SimuladoActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Parabéns, acertou", Toast.LENGTH_SHORT)
                             .show()
                         acertos++
+                        questionCard.setCardBackgroundColor(ContextCompat.getColor(applicationContext, R.color.light_green))
                     } else {
                         Toast.makeText(applicationContext, "Você errou", Toast.LENGTH_SHORT).show()
                         erros++
+                        questionCard.setCardBackgroundColor(ContextCompat.getColor(applicationContext, R.color.light_red))
                     }
                     corrigirButton.isEnabled = false
                     corrigirButton.isClickable = false
